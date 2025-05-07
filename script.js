@@ -1,31 +1,27 @@
+var map = L.map('map').setView([47.0551347757616, 8.305066129833179], 16);
 
-console.log("hallo")
+// OpenStreetMap-Tiles laden
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
 
-const container = document.querySelector("#spell-container")
+// Marker mit Popup hinzufügen
+L.marker([47.05846993506582, 8.310923229170475]).addTo(map)
+  .bindPopup('Löwendenkmal')
+  .openPopup();
 
-const API_URL = "https://portal.alfons.io/app/devicecounter/api/sensors?api_key=3ad08d9e67919877e4c9f364974ce07e36cbdc9e"
+  L.marker([47.05549754312702, 8.310256739922227]).addTo(map)
+  .bindPopup('Hertensteinstrasse')
+  .openPopup();
 
-async function fetchData(url) {
-    try {
-        const response = await fetch (url);
-        return await response.json();
-    } catch (e) {
-    console.error(e);
-    return [];
-    }
-}
+  L.marker([47.053680374103024, 8.308729270948183]).addTo(map)
+  .bindPopup('Schwanenplatz')
+  .openPopup();
 
-const myData = await fetchData(API_URL);
-console.log(myData[0].description);
+  L.marker([47.05233432536328, 8.307978424218748]).addTo(map)
+  .bindPopup('Rathausquai')
+  .openPopup();
 
-function showData(data) {
-    data.forEach((element) => {
-        const card = document.createElement("div");
-        card.innerHTML = `<h2>${element.name}</h2>`;
-        container.appendChild(card);
-    });
-}
-
-showData(myData);
-
-var map = L.map('map').setView([47.0502, 8.3093], 13);
+  L.marker([47.0516, 8.3075]).addTo(map)
+  .bindPopup('Kapellbrücke')
+  .openPopup();
