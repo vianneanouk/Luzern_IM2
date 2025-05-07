@@ -1,15 +1,15 @@
 let map = L.map('map').setView([47.0551347757616, 8.305066129833179], 16);
 
 let green_marker = L.icon({
-    iconUrl: 'img/green_marker.png',
+    iconUrl: 'img/green_marker.svg',
 });
 
 let orange_marker = L.icon({
-    iconUrl: 'img/orange_marker.png',
+    iconUrl: 'img/orange_marker.svg',
 });
 
 let red_marker = L.icon({
-    iconUrl: 'img/red_marker.png',
+    iconUrl: 'img/red_marker.svg',
 });
 
 // OpenStreetMap-Tiles laden
@@ -18,7 +18,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // Marker mit Popup hinzufügen
-L.marker([47.05846993506582, 8.310923229170475], {icon: red_marker}).addTo(map)
+L.marker([47.05846993506582, 8.310923229170475], {icon: green_marker}).addTo(map)
   .bindPopup('Löwendenkmal')
   .openPopup();
 
