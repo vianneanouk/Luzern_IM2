@@ -43,3 +43,19 @@ L.marker([47.058341871115616, 8.310841259645938], {icon: green_marker}).addTo(ma
   L.marker([47.0516, 8.3075], {icon: green_marker}).addTo(map)
   .bindPopup('Kapellbrücke')
   .openPopup();
+
+
+  const bubble = L.divIcon({
+    className: 'speech-bubble',
+    iconAnchor: [19, 75]
+  });
+  
+  L.marker([47.05796842786666, 8.308897547272052], {icon: bubble }).addTo(map);
+
+  L.marker([47.05521471908057, 8.306938713116102], {icon: bubble}).addTo(map);
+
+  L.marker([47.05325135356975, 8.303726564553916], {icon: bubble}).addTo(map);
+
+  L.marker([47.05147643654085, 8.298668482793298], {icon: bubble}).addTo(map);
+
+  L.marker([47.05033486219313, 8.304265147512542], {icon: bubble}).addTo(map);
