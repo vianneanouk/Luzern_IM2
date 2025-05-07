@@ -26,5 +26,6 @@ function showData(data) {
     });
 }
 
-
 showData(myData);
+
+var map = L.map('map').setView([47.0502, 8.3093], 13);

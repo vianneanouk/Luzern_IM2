@@ -2,3 +2,7 @@
 .test {
     color: red;
 }
+
+#map {
+    height: 180px;
+}
