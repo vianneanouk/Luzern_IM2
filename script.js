@@ -1,3 +1,41 @@
+const container = document.querySelector("#sensor-container");
+
+const API_URL = "https://portal.alfons.io/app/devicecounter/api/sensors?api_key=3ad08d9e67919877e4c9f364974ce07e36cbdc9e";
+
+async function fetchSensorData(url) {
+    try {
+        const response = await fetch(url);
+        const json = await response.json();
+
+        if (json.success && Array.isArray(json.data)) {
+            return json.data;
+        } else {
+            console.error("Unerwartetes Format:", json);
+            return [];
+        }
+    } catch (error) {
+        console.error("Fehler beim Abrufen der API:", error);
+        return [];
+    }
+}
+
+function renderSensors(sensors) {
+    sensors.forEach(sensor => {
+        const div = document.createElement("div");
+        div.innerHTML = `
+            <h2>${sensor.name}</h2>
+            <p>Zähler: ${sensor.counter}</p>
+            <p>Zeit: ${sensor.ISO_time} (${sensor.zone})</p>
+        `;
+        container.appendChild(div);
+    });
+}
+
+const data = await fetchSensorData(API_URL);
+console.log(data);
+let loewendenkmal = data[0];
+console.log(loewendenkmal)
+
 let map = L.map('map').setView([47.0551347757616, 8.305066129833179], 16);
 
 let green_marker = L.icon({
@@ -63,7 +101,7 @@ L.marker([47.058341871115616, 8.310841259645938], {icon: green_marker}).addTo(ma
 .bindPopup(`
   <div class="popup-content">
     <h2>Mehr Platz als während dem Corona-Lockdown</h2>
-    <p class="info">Anzahl Leute: 22<br>zuletzt gemessen: 6:58 Uhr</p>
+    <p class="info">Anzahl Leute: ${loewendenkmal.counter}<br>zuletzt gemessen: 6:58 Uhr</p>
     </div>`);
 
 L.marker([47.0580694107522, 8.311013370717475], { icon: loewendenkmalIcon }).addTo(map);
