@@ -41,8 +41,7 @@ L.marker([47.058341871115616, 8.310841259645938], {icon: green_marker}).addTo(ma
   .openPopup();
 
   L.marker([47.0516, 8.3075], {icon: green_marker}).addTo(map)
-  .bindPopup('Kapellbrücke')
-  .openPopup();
+  .bindPopup('<p class="test">Hello world!<br />This is a nice popup.</p>')
 
 
   const bubble = L.divIcon({
