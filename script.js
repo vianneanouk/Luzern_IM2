@@ -122,7 +122,7 @@ schwanenplatz.time = formatUnixTimeToHHMM(schwanenplatz.ISO_time);
 
 
 function getCrowdMessage(counter) {
-  if (counter > 100) {
+  if (counter > 150) {
       return "Fühlt sich an wie an der Fasnacht, nur ohne Musik und Kostüme.";
   } else if (counter > 50) {
       return "Luzern ist wach, aber du brauchst noch keine Ellenbogen, um durchzukommen.";
@@ -131,6 +131,15 @@ function getCrowdMessage(counter) {
   }
 }
 
+function getCrowdMarker(counter) {
+  if (counter > 150) {
+      return {icon: red_marker};
+  } else if (counter > 50) {
+      return {icon: orange_marker};
+  } else {
+      return {icon: green_marker};
+  }
+}
 
 
 // OpenStreetMap-Tiles laden
@@ -139,7 +148,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 }).addTo(map);
 
 // Marker mit Popup hinzufügen
-L.marker([47.058341871115616, 8.310841259645938], {icon: green_marker}).addTo(map)
+L.marker([47.058341871115616, 8.310841259645938], getCrowdMarker(loewendenkmal.counter)).addTo(map)
 .bindPopup(`
   <div class="popup-content">
     <h2>${getCrowdMessage(loewendenkmal.counter)}</h2>
@@ -151,7 +160,7 @@ L.marker([47.0580694107522, 8.311013370717475], {icon: loewendenkmalIcon }).addT
 
 
 
-L.marker([47.05549754312702, 8.310256739922227], {icon: green_marker}).addTo(map)
+L.marker([47.05549754312702, 8.310256739922227], getCrowdMarker(hertensteinstrasse.counter)).addTo(map)
 .bindPopup(`
   <div class="popup-content">
     <h2>${getCrowdMessage(hertensteinstrasse.counter)}</h2>
@@ -162,18 +171,18 @@ L.marker([47.05520389812051, 8.31030314438318], { icon: hertensteinstrasseIcon }
 
 
 
-L.marker([47.05361289724891, 8.308787900487744], {icon: green_marker}).addTo(map)
+L.marker([47.05361289724891, 8.308787900487744], getCrowdMarker(schwanenplatz.counter)).addTo(map)
 .bindPopup(`
   <div class="popup-content">
     <h2>${getCrowdMessage(schwanenplatz.counter)}</h2>
     <p class="info">Anzahl Leute: ${schwanenplatz.counter}<br>zuletzt gemessen: ${schwanenplatz.time} Uhr</p>
     </div>`);
 
-L.marker([47.053326495141825, 8.308983862796921], {icon: schwanenplatzIcon }).addTo(map);
+L.marker([47.053326495141825, 8.308983862796921], {icon: schwanenplatzIcon}).addTo(map);
 
 
 
-L.marker([47.05233432536328, 8.307978424218748], {icon: green_marker}).addTo(map)
+L.marker([47.05233432536328, 8.307978424218748], getCrowdMarker(rathausquai.counter)).addTo(map)
 .bindPopup(`
   <div class="popup-content">
     <h2>${getCrowdMessage(rathausquai.counter)}</h2>
@@ -182,7 +191,9 @@ L.marker([47.05233432536328, 8.307978424218748], {icon: green_marker}).addTo(map
 
 L.marker([47.052037509036495, 8.309074616902045], { icon: rathausquaiIcon }).addTo(map);
 
-L.marker([47.0516, 8.3075], {icon: green_marker}).addTo(map)
+
+
+L.marker([47.0516, 8.3075], getCrowdMarker(kapellbruecke.counter)).addTo(map)
 .bindPopup(`
   <div class="popup-content">
     <h2>${getCrowdMessage(kapellbruecke.counter)}</h2>
