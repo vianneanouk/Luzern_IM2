@@ -33,29 +33,16 @@ function renderSensors(sensors) {
 }
 
 const data = await fetchSensorData(API_URL);
-console.log(data);
+console.log("Sensor-Daten:", data);
+
 let hertensteinstrasse = data[0];
-console.log(hertensteinstrasse)
-
-const data1 = await fetchSensorData(API_URL);
-console.log(data);
 let kapellbruecke = data[1];
-console.log(kapellbruecke)
-
-const data3 = await fetchSensorData(API_URL);
-console.log(data);
 let loewendenkmal = data[3];
-console.log(loewendenkmal)
-
-const data4 = await fetchSensorData(API_URL);
-console.log(data);
 let rathausquai = data[4];
-console.log(rathausquai)
-
-const data5 = await fetchSensorData(API_URL);
-console.log(data);
 let schwanenplatz = data[5];
-console.log(schwanenplatz)
+
+console.log({ hertensteinstrasse, kapellbruecke, loewendenkmal, rathausquai, schwanenplatz });
+
 
 
 
@@ -113,6 +100,27 @@ let kapellbrueckeIcon = L.divIcon({
   iconSize: [100, 40], // Größe des "Icons" (optional)
   iconAnchor: [50, 20]  // Ankerpunkt, damit es gut sitzt
 });
+
+
+
+
+function formatUnixTimeToHHMM(isoTime) {
+  const date = new Date(isoTime);  // Direktes Umwandeln des ISO-Zeitstrings
+  if (isNaN(date)) return 'Keine Zeit verfügbar';
+
+  return date.toLocaleTimeString('de-CH', {
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+}
+
+loewendenkmal.time = formatUnixTimeToHHMM(loewendenkmal.ISO_time);
+kapellbruecke.time = formatUnixTimeToHHMM(kapellbruecke.ISO_time);
+hertensteinstrasse.time = formatUnixTimeToHHMM(hertensteinstrasse.ISO_time);
+rathausquai.time = formatUnixTimeToHHMM(rathausquai.ISO_time);
+schwanenplatz.time = formatUnixTimeToHHMM(schwanenplatz.ISO_time);
+
+
 
 // OpenStreetMap-Tiles laden
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
