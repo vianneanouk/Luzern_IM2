@@ -18,6 +18,7 @@ async function fetchSensorData(url) {
         return [];
     }
 }
+d
 
 function renderSensors(sensors) {
     sensors.forEach(sensor => {
@@ -41,7 +42,7 @@ let map = L.map('map').setView([47.0551347757616, 8.305066129833179], 16);
 let green_marker = L.icon({
     iconUrl: 'img/green_marker.svg',
     iconSize:     [38, 95],
-    iconAnchor: [19, 75],
+    iconAnchor: [19, 75], 
 });
 
 let orange_marker = L.icon({
