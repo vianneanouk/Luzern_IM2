@@ -28,31 +28,16 @@ body {
   
   }
 
-  .speech-bubble {
-    position: absolute;
-    background: #0072BD;
+
+  .leaflet-popup-content-wrapper {
+    background-color: #0072BD;
+    color: white;
     border-radius: 10px;
-    padding: 15px;
-    width: 150px !important;
-    height: 60px !important;
-    z-index: 1000;
-    font-family: sans-serif;
-    margin-top: 100px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
-  
-  /* Der Pfeil unten links */
-  .speech-bubble::after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    right: -15px;
-    width: 0;
-    height: 0;
-    border: 10px solid transparent;
-    border-left-color: #0072BD;
-  }
-  .test {
-    color: chocolate;
+
+  .leaflet-popup-tip {
+    background-color: #0072BD;
   }
 
   
