@@ -18,7 +18,7 @@ async function fetchSensorData(url) {
         return [];
     }
 }
-d
+
 
 function renderSensors(sensors) {
     sensors.forEach(sensor => {
