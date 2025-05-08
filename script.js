@@ -60,26 +60,46 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 
 // Marker mit Popup hinzufügen
 L.marker([47.058341871115616, 8.310841259645938], {icon: green_marker}).addTo(map)
-  .bindPopup('Löwendenkmal <br> Mehr Platz als während dem Corona-Lockdown <br> Anzahl Leute: 22 <br> zuletzt gemessen: 6:58');
+.bindPopup(`
+  <div class="popup-content">
+    <h2>Mehr Platz als während dem Corona-Lockdown</h2>
+    <p class="info">Anzahl Leute: 22<br>zuletzt gemessen: 6:58 Uhr</p>
+    </div>`);
 
-L.marker([47.058170455176885, 8.31080272726595], { icon: loewendenkmalIcon }).addTo(map);
+L.marker([47.0580694107522, 8.311013370717475], { icon: loewendenkmalIcon }).addTo(map);
 
 L.marker([47.05549754312702, 8.310256739922227], {icon: green_marker}).addTo(map)
-  .bindPopup('Hertensteinstrasse <br> Mehr Platz als während dem Corona-Lockdown <br> Anzahl Leute: 22 <br> zuletzt gemessen: 6:58');
+.bindPopup(`
+  <div class="popup-content">
+    <h2>Mehr Platz als während dem Corona-Lockdown</h2>
+    <p class="info">Anzahl Leute: 22<br>zuletzt gemessen: 6:58 Uhr</p>
+    </div>`);
 
-L.marker([47.05523847502904, 8.310229805044944], { icon: hertensteinstrasseIcon }).addTo(map);
+L.marker([47.05520389812051, 8.31030314438318], { icon: hertensteinstrasseIcon }).addTo(map);
 
 L.marker([47.05361289724891, 8.308787900487744], {icon: green_marker}).addTo(map)
-  .bindPopup('Schwanenplatz <br> Mehr Platz als während dem Corona-Lockdown <br> Anzahl Leute: 22 <br> zuletzt gemessen: 6:58');
+.bindPopup(`
+  <div class="popup-content">
+    <h2>Mehr Platz als während dem Corona-Lockdown</h2>
+    <p class="info">Anzahl Leute: 22<br>zuletzt gemessen: 6:58 Uhr</p>
+    </div>`);
 
-L.marker([47.05339218104952, 8.308790786301056], { icon: schwanenplatzIcon }).addTo(map);
+L.marker([47.053326495141825, 8.308983862796921], { icon: schwanenplatzIcon }).addTo(map);
 
 L.marker([47.05233432536328, 8.307978424218748], {icon: green_marker}).addTo(map)
-  .bindPopup('Rathausquai <br> Mehr Platz als während dem Corona-Lockdown <br> Anzahl Leute: 22 <br> zuletzt gemessen: 6:58');
+.bindPopup(`
+  <div class="popup-content">
+    <h2>Mehr Platz als während dem Corona-Lockdown</h2>
+    <p class="info">Anzahl Leute: 22<br>zuletzt gemessen: 6:58 Uhr</p>
+    </div>`);
 
-L.marker([47.05208179316366, 8.307845011455354], { icon: rathausquaiIcon }).addTo(map);
+L.marker([47.052037509036495, 8.309074616902045], { icon: rathausquaiIcon }).addTo(map);
 
 L.marker([47.0516, 8.3075], {icon: green_marker}).addTo(map)
-  .bindPopup('Kapellbrücke <br> Mehr Platz als während dem Corona-Lockdown <br> Anzahl Leute: 22 <br> zuletzt gemessen: 6:58');
+.bindPopup(`
+  <div class="popup-content">
+    <h2>Mehr Platz als während dem Corona-Lockdown</h2>
+    <p class="info">Anzahl Leute: 22<br>zuletzt gemessen: 6:58 Uhr</p>
+    </div>`);
 
-  L.marker([47.05159596791637, 8.307537488571525], { icon: kapellbrueckeIcon }).addTo(map);
+  L.marker([47.05141583560954, 8.30709768417738], { icon: kapellbrueckeIcon }).addTo(map);
