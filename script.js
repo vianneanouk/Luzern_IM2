@@ -121,6 +121,17 @@ rathausquai.time = formatUnixTimeToHHMM(rathausquai.ISO_time);
 schwanenplatz.time = formatUnixTimeToHHMM(schwanenplatz.ISO_time);
 
 
+function getCrowdMessage(counter) {
+  if (counter > 100) {
+      return "Fühlt sich an wie an der Fasnacht, nur ohne Musik und Kostüme.";
+  } else if (counter > 50) {
+      return "Luzern ist wach, aber du brauchst noch keine Ellenbogen, um durchzukommen.";
+  } else {
+      return "Mehr Platz als während dem Corona-Lockdown.";
+  }
+}
+
+
 
 // OpenStreetMap-Tiles laden
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -131,7 +142,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 L.marker([47.058341871115616, 8.310841259645938], {icon: green_marker}).addTo(map)
 .bindPopup(`
   <div class="popup-content">
-    <h2>Mehr Platz als während dem Corona-Lockdown</h2>
+    <h2>${getCrowdMessage(loewendenkmal.counter)}</h2>
     <p class="info">Anzahl Leute: ${loewendenkmal.counter}<br>zuletzt gemessen: ${loewendenkmal.time} Uhr</p>
     </div>`);
 
@@ -143,7 +154,7 @@ L.marker([47.0580694107522, 8.311013370717475], {icon: loewendenkmalIcon }).addT
 L.marker([47.05549754312702, 8.310256739922227], {icon: green_marker}).addTo(map)
 .bindPopup(`
   <div class="popup-content">
-    <h2>Mehr Platz als während dem Corona-Lockdown</h2>
+    <h2>${getCrowdMessage(hertensteinstrasse.counter)}</h2>
     <p class="info">Anzahl Leute: ${hertensteinstrasse.counter} <br>zuletzt gemessen: ${hertensteinstrasse.time} Uhr</p>
     </div>`);
 
@@ -154,7 +165,7 @@ L.marker([47.05520389812051, 8.31030314438318], { icon: hertensteinstrasseIcon }
 L.marker([47.05361289724891, 8.308787900487744], {icon: green_marker}).addTo(map)
 .bindPopup(`
   <div class="popup-content">
-    <h2>Mehr Platz als während dem Corona-Lockdown</h2>
+    <h2>${getCrowdMessage(schwanenplatz.counter)}</h2>
     <p class="info">Anzahl Leute: ${schwanenplatz.counter}<br>zuletzt gemessen: ${schwanenplatz.time} Uhr</p>
     </div>`);
 
@@ -165,7 +176,7 @@ L.marker([47.053326495141825, 8.308983862796921], {icon: schwanenplatzIcon }).ad
 L.marker([47.05233432536328, 8.307978424218748], {icon: green_marker}).addTo(map)
 .bindPopup(`
   <div class="popup-content">
-    <h2>Mehr Platz als während dem Corona-Lockdown</h2>
+    <h2>${getCrowdMessage(rathausquai.counter)}</h2>
     <p class="info">Anzahl Leute: ${rathausquai.counter}<br>zuletzt gemessen: ${rathausquai.time} Uhr</p>
     </div>`);
 
@@ -174,7 +185,7 @@ L.marker([47.052037509036495, 8.309074616902045], { icon: rathausquaiIcon }).add
 L.marker([47.0516, 8.3075], {icon: green_marker}).addTo(map)
 .bindPopup(`
   <div class="popup-content">
-    <h2>Mehr Platz als während dem Corona-Lockdown</h2>
+    <h2>${getCrowdMessage(kapellbruecke.counter)}</h2>
     <p class="info">Anzahl Leute: ${kapellbruecke.counter}<br>zuletzt gemessen: ${kapellbruecke.time} Uhr</p>
     </div>`);
 
