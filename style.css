@@ -34,6 +34,7 @@ body {
 
 
   .leaflet-popup-content-wrapper {
+    max-width: 400px;
     background-color: #0072BD;
     color: white;
     border-radius: 10px;
@@ -50,4 +51,67 @@ body {
     font-weight: bolder;
   }
 
+  @media (max-width: 1024px) {
+    h1 {
+      font-size: 56px;
+    }
   
+    .leaflet-popup-content-wrapper {
+      font-size: 12px;
+      max-width: 300px;
+    }
+
+    .leaflet-popup-content {
+      max-width: 280px;
+    }
+  
+    .text-label {
+      font-size: 16px;
+    }
+  
+    /* Markergröße anpassen (SVG muss neu geladen oder skaliert sein!) */
+    .leaflet-marker-icon {
+      transform: scale(0.8);
+    }
+  
+    #map {
+      height: 700px;
+    }
+  }
+  
+  /* iPhone (z. B. 375–430px Breite) */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 36px;
+    }
+  
+    .text-label {
+      font-size: 14px;
+    }
+  
+    .leaflet-popup-content h2 {
+      font-size: 14px;
+    }
+  
+    .leaflet-popup-content .info {
+      font-size: 11px;
+    }
+  
+    .leaflet-marker-icon {
+      transform: scale(0.6);
+    }
+
+    .leaflet-popup-content-wrapper {
+      transform: scale(1.0);
+      transform-origin: bottom center;
+      margin: auto;
+      white-space: normal;
+    }
+  
+    .leaflet-popup-content {
+      line-height: 1.4;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+  
+  }
